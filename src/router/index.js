@@ -1,14 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import Project from '../views/project'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
     path: '/',
-    name: 'home',
-    component: Home
+    component: Home,
+    name: '导航一',
+    iconCls: 'el-icon-message',//图标样式class
+    children: [
+      { path: '/project', component: Project, name: 'project' },
+
+    ]
   },
   {
     path: '/about',
